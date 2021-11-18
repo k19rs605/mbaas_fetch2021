@@ -46,12 +46,16 @@
     TestClass.fetchAll()
     .then(function(results){
       var msg="";
+
       for(i=0;i<results.length;i++){
         var data=results[i].get("text");
         var update=results[i].get("updateDate");
-        msg +=data+":"+update+"\n";
+       
+        msg+="<tr><td>"+data+"</td><td>"+update+"</td></tr>";
       }
-        $("#message").html(msg);
+      $("#message").html("<table><tr><th>message</th><th>Update Date</th></tr>"+msg+"</table>");
+      
+        
     })
     }
     </script>
@@ -69,5 +73,6 @@
   </div>
  
   <div id="message">message area</div>
+ 
 </body>
 </html>
